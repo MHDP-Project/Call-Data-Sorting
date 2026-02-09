@@ -1,158 +1,114 @@
-# Protocol for Audio Data Sorting  
-**Butabika Hospital Call Center (PBX System)**
+# Butabika Call Center Audio Data Sorting Protocol
+
+## Description
+This repository documents the protocol used to **sort and label telephone call audio recordings** from the Butabika Hospital Call Center PBX system.
+
+The sorting process focuses on capturing **high-level, non-clinical metadata** from each call to structure the dataset for **future mental health research and clinical annotation**.  
+No diagnostic decisions are made at this stage; labels reflect information **explicitly stated or reasonably inferred** from the audio.
 
 ---
 
-## Overview
-This repository documents the **audio data sorting protocol** used for telephone call recordings from **Butabika Hospital’s Call Center PBX system**.
-
-The protocol defines how **non-clinical, global audio metadata** is manually labeled to prepare call audio for **future clinical and research annotation**, particularly in mental health research.
-
-> ⚠️ **Important:** All sorting activities are conducted **exclusively on-site** within the PBX environment at Butabika Hospital. No data leaves the system.
-
----
-
-## Purpose
-- Organize raw PBX call recordings into a structured format  
-- Capture global (non-clinical) call metadata  
-- Enable downstream clinical annotation and research workflows  
-
----
-
-## Scope
-- Applies to **WAV audio files** stored on the PBX system  
-- Annotation is done **manually in Excel** by listening to each audio file  
-- The following are **strictly prohibited**:
-  - Laptops
-  - USB drives
-  - External file transfers
-  - Internet-based sharing or syncing
-
-All work must remain within the **Butabika Call Center PBX desktop environment**.
-
----
-
-## Sorting Parameters
-Each annotator labels the following parameters.  
-The **FileName** column must contain the **exact audio file name**, copied directly from the folder.
+## Labeled Parameters
+Each audio file is reviewed manually and assigned the following metadata fields:
 
 ### 1. FileName
-- Exact name of the audio file (no modification)
+The exact name of the audio file as stored on the PBX system.
 
 ---
 
 ### 2. CallerSex
-Perceived sex of the caller based on voice, self-identification, or statements made during the call.
+Perceived sex of the caller based on voice or self-identification.
 
-**Expected values:**
-- Male  
-- Female  
-- Unclear  
-
-> Use **Unclear** if sex cannot be confidently determined (e.g., poor audio, child’s voice, no speech).  
-> All *Unclear* cases must be briefly explained in the **Comment** column.
+**Values:**  
+`Male`, `Female`, `Unclear`
 
 ---
 
 ### 3. CallerPurpose
-Primary reason for the call.
+The primary reason for the call.
 
-**Expected values:**
-- Related to mental health patient diagnosis  
+**Values include:**  
+- Mental health–related inquiry  
 - Other health condition  
-- Other query  
-- Administrative inquiry (e.g., hospital procedures, admission rules)  
-- Appointment-related (e.g., scheduling, confirming reviews)  
-- Seeking services (e.g., treatment options, lab, referrals)  
-- Other (must be clarified in **Comment**)
+- Administrative inquiry  
+- Appointment-related  
+- Seeking services  
+- Other
 
 ---
 
 ### 4. CallerType
-Identifies who is making the call.
+Who is making the call.
 
-**Expected values:**
-- Patient (calling about their own condition)  
-- Caretaker (parent, spouse, sibling, etc.)  
-- Community member (concerned citizen reporting a case)  
-- Healthcare provider (consultation or referral-related)  
-- Institutional representative (school, church, NGO, workplace, etc.)  
-- Law enforcement (police or security services)  
+**Values include:**  
+- Patient  
+- Caretaker  
+- Community member  
+- Healthcare provider  
+- Institutional representative  
+- Law enforcement  
 - Hospital staff (non-clinical)  
 - Student / Intern applicant  
-- Unknown  
+- Unknown
 
 ---
 
 ### 5. PatientStatus
-Indicates whether the person discussed is already in mental health care.
+Care status of the person being discussed.
 
-**Expected values:**
+**Values include:**  
 - In care at a hospital  
 - Under care elsewhere  
 - Not under care  
 - Referred for admission  
 - Re-admission after defaulting  
 - Unclear  
-- Other (must be clarified in **Comment**)
+- Other
 
 ---
 
 ### 6. Language
-Dominant language spoken during the call.
+Dominant language(s) spoken during the call.
 
-**Expected values:**
+**Values include:**  
 - Luganda  
 - English  
-- Luganda-English  
+- Luganda–English  
 - Runyankore  
 - Lusoga  
-- Luganda-Lusoga  
-- Luganda-Runyankore  
-- English-Runyankore  
+- Mixed languages  
 - Unclear  
-- Other (specify actual language(s) in **Comment**)
+- Other
 
 ---
 
 ### 7. CallQuality
-Rates how clear and understandable the call is.
+Overall clarity of the call audio.
 
-**Scale (Likert):**
-- 1 – Very poor  
-- 2 – Poor  
-- 3 – Fair  
-- 4 – Good  
-- 5 – Excellent  
-
-If quality is poor but the call is still understandable, annotation may continue.  
-If the audio is too unclear, annotators should stop and explain in **Comment**.
+**Scale:**  
+1 (Very poor) → 5 (Excellent)
 
 ---
 
 ### 8. Diagnosis / Symptoms
-Captures any diagnosis mentioned or symptoms described.
+Any diagnosis mentioned or symptoms described during the call.
 
 **Format:**  
-- Comma-separated list of diagnoses and/or symptoms  
-
-This may include inferred conditions based on medication or symptom descriptions.
+Comma-separated list of diagnoses and/or symptoms.
 
 ---
 
 ### 9. ReasonNotLabeled
-Filled **only if the call cannot be labeled at all**.
+Used only when a call cannot be labeled.
 
-**Expected values:**
-- No recording (silent or empty file)  
-- System testing (test call, no meaningful content)  
-- Very short call (under ~3–5 seconds)  
-- Poor audio quality (too noisy or distorted)
+**Values include:**  
+- No recording  
+- System testing  
+- Very short call  
+- Poor audio quality
 
 ---
 
-## Folder Structure and Setup
-
-### Folder Setup (by PBX Engineer)
-For each annotator (e.g., *Ruth Neumbe*):
+## Notes
+This protocol supports **dataset structuring and quality control** and is intended to enable downstream annotation, analysis, and modeling in low-resource mental health research contexts.
 
